@@ -40,9 +40,9 @@ export default function TabsLayout() {
           fontWeight: "600",
         },
 
-        sceneContainerStyle: {
-          backgroundColor: "#fff",
-        },
+        // sceneContainerStyle: {
+        //   backgroundColor: "#fff",
+        // },
       }}
     >
       {/* HOME */}

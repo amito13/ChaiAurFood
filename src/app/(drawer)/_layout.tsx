@@ -1,28 +1,25 @@
-// import { Tabs } from "expo-router";
-// import { Ionicons } from "@expo/vector-icons";
+import { Drawer } from "expo-router/drawer";
 
-// export default function TabsLayout() {
-//   return (
-//     <Tabs screenOptions={{ headerShown: false }}>
-//       <Tabs.Screen
-//         name="home"
-//         options={{
-//           title: "ejjejejej",
-//           tabBarIcon: ({ color, size }) => (
-//             <Ionicons name="home" color={color} size={size} />
-//           ),
-//         }}
-//       />
+export default function DrawerLayout() {
+  return (
+    <Drawer
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Drawer.Screen
+        name="(tabs)"
+        options={{
+          title: "Home",
+        }}
+      />
 
-//       <Tabs.Screen
-//         name="profile"
-//         options={{
-//           title: "Profile",
-//           tabBarIcon: ({ color, size }) => (
-//             <Ionicons name="person" color={color} size={size} />
-//           ),
-//         }}
-//       />
-//     </Tabs>
-//   );
-// }
+      <Drawer.Screen
+        name="test"
+        options={{
+          title: "Test Screen",
+        }}
+      />
+    </Drawer>
+  );
+}

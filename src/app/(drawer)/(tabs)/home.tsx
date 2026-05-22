@@ -10,11 +10,14 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import RestoData from "../../RestoData.json";
-
+import { DrawerActions } from "@react-navigation/native";
+import { useNavigation } from "expo-router";
 import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 export default function Home() {
+  
+const navigation = useNavigation();
   const router = useRouter();
 
   const categories = [
@@ -44,14 +47,11 @@ export default function Home() {
   const restaurants = RestoData.restos;
 
   const goToResto = (id: number) => {
-    const pathname = " " as const;
-    const params = { id: String(id) };
-
-    console.log("pathname:", pathname);
-    console.log("params:", params);
-
-    router.push({ pathname, params });
-  };
+  router.push({
+    pathname: "/resto/[id]",
+    params: { id: String(id) },
+  });
+};
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -64,9 +64,12 @@ export default function Home() {
         <View style={styles.container}>
           {/* HEADER */}
           <View style={styles.header}>
-            <View style={styles.menuButton}>
+          <Pressable
+                  style={styles.menuButton}
+                  onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+                >
               <Feather name="menu" size={20} color="#2D2D2D" />
-            </View>
+            </Pressable>
 
             {/* <View style={styles.notificationWrapper}>
               <View style={styles.notificationBadge}>
@@ -161,23 +164,6 @@ export default function Home() {
             </Pressable>
           </View>
 
-          {/* <Pressable>
-             <Link href="/Components/Resto/Resto">Resto check</Link>
-            </Pressable> */}
-
-          <Pressable
-            onPress={() => {
-              const pathname = "/Components/Resto" as const;
-              const params = { name: "Burger king" };
-
-              console.log("pathname:", pathname);
-              console.log("params:", params);
-
-              router.push({ pathname, params });
-            }}
-          >
-            <Text style={styles.seeAll}>Resto check</Text>
-          </Pressable>
 
           {/* RESTAURANT CARDS */}
           {restaurants.map((item) => (
@@ -193,7 +179,7 @@ export default function Home() {
                 style={styles.restaurantImage}
               />
 
-              <View style={styles.restaurantContent}>
+              <SafeAreaView style={styles.restaurantContent}>
                 <Text style={styles.restaurantTitle}>{item.name}</Text>
 
                 <View style={styles.infoRow}>
@@ -219,7 +205,7 @@ export default function Home() {
                     <Text style={styles.infoText}>{item.time}</Text>
                   </View>
                 </View>
-              </View>
+              </SafeAreaView>
             </Pressable>
           ))}
         </View>
