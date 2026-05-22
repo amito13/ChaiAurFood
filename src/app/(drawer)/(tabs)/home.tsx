@@ -47,11 +47,11 @@ const navigation = useNavigation();
   const restaurants = RestoData.restos;
 
   const goToResto = (id: number) => {
-  router.push({
-    pathname: "/resto/[id]",
-    params: { id: String(id) },
-  });
-};
+    router.push({
+      pathname: "/resto/[id]",
+      params: { id: String(id) },
+    });
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -83,7 +83,7 @@ const navigation = useNavigation();
                   color="#2D2D2D"
                 />
               </View>
-            </View> */}
+            </View> */ }
             <View style={styles.addressContainer}>
               <Text style={styles.deliverText}>DELIVER TO</Text>
 

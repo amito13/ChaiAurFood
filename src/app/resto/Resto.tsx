@@ -7,6 +7,7 @@ const Resto = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text>Resto: {value.name}</Text>
+        <Text>Id: {value.id}</Text>
 
 
     </View>
