@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
-
+import Profile from "../(drawer)/(tabs)/profile"
 export default function Test() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Test Drawer Screen</Text>
+      
     </View>
   );
 }
