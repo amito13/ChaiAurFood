@@ -102,7 +102,7 @@ const navigation = useNavigation();
           {/* GREETING */}
           <View style={styles.greetingContainer}>
             <Text style={styles.greetingMain}>
-              Missing home? We know a place that tastes like it.
+             Ghar ka khana miss kar rahe ho? Hum hai na!
             </Text>
           </View>
 
